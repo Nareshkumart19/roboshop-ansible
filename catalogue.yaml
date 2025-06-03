@@ -20,7 +20,7 @@
   - name: create app directory
     ansible.builtin.file:
       path: /app
-      statate: directory
+      state: directory
 
 
   - name: user create with shell
