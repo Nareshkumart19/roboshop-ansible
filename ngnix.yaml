@@ -14,38 +14,38 @@
        name: nginx
        state: present 
 
-    - name: Recursively remove a directory
+    - name:  remove a directory
       ansible.builtin.file:
-      path: /usr/share/nginx/html
-      state: absent
+        path: /usr/share/nginx/html
+        state: absent
 
 
     - name: create html directory
       ansible.builtin.file:
-      path: /usr/share/nginx/html
-      state: directory
+        path: /usr/share/nginx/html
+        state: directory
 
 
     - name:  dowmload catalouge code
       ansible.builtin.get_url:
-      url: https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
-      dest: /tmp/frontend.zip
+        url: https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
+        dest: /tmp/frontend.zip
 
     - name: unzip direciory
       ansible.builten.unarchive:
-      src:  /tmp/frontend.zip
-      dest: /usr/share/nginx/html  
-      remote_src: yes
+        src:  /tmp/frontend.zip
+        dest: /usr/share/nginx/html  
+        remote_src: yes
       
     - name: remove default nginx conf
       ansible.builtin.file:
-      path: /etc/nginx/nginx.conf
-      state: absent
+        path: /etc/nginx/nginx.conf
+        state: absent
 
     - name: copy service file
       ansible.builtin.copy:
-      src: ngnix.service
-      dest: /etc/nginx/nginx.conf
+        src: ngnix.service
+        dest: /etc/nginx/nginx.conf
 
     - name: restart nginx
       ansible.builtin.service:
