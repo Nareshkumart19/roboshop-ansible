@@ -12,23 +12,23 @@
       name: nodejs
       state: present
 
-  #- name: start service  nodejs
-  #  ansible.builtin.service:
-  #    name: nodejs
-  #    state: started
-
-  - name: create app directory
-    ansible.builtin.file:
-      path: /app
-      state: directory
+  #- name: create app directory
+  #  ansible.builtin.file:
+  #    path: /app
+  #    state: directory
 
 
-  - name: user create with shell
+  - name: create system user
     ansible.builtin.user: 
       name: roboshop  
       shell: /sbin/nologin
       system: true
       home: /app
+  
+  - name: create app directory
+    ansible.builtin.file:
+      path: /app
+      state: directory
 
   - name:  dowmload catalouge code
     ansible.builtin.get_url:

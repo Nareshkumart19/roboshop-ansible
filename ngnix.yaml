@@ -1,6 +1,6 @@
 - name: install ngnix
   hosts: frontend
-  become: true
+  become: yes
   tasks:
 
     - name: disable nginx 
