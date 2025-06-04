@@ -12,10 +12,10 @@
       name: nodejs
       state: present
 
-  - name: statrt service  nodejs
-    ansible.builtin.service:
-      name: nodejs
-      state: started
+  #- name: start service  nodejs
+  #  ansible.builtin.service:
+  #    name: nodejs
+  #    state: started
 
   - name: create app directory
     ansible.builtin.file:
