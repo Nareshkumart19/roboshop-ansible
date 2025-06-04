@@ -32,7 +32,7 @@
         dest: /tmp/frontend.zip
 
     - name: unzip direciory
-      ansible.builten.unarchive:
+      ansible.builtin.unarchive:
         src:  /tmp/frontend.zip
         dest: /usr/share/nginx/html  
         remote_src: yes
